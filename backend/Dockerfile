@@ -4,5 +4,5 @@ RUN apt-get update && apt-get install -y ghostscript
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 5000
+EXPOSE 10000
 CMD ["npm", "start"]

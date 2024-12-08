@@ -10,6 +10,8 @@ const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
       "https://jagathgj.github.io",
+      "http://localhost:5000",
+      "http://localhost:5001",
       "http://localhost:3000"
     ];
     if (allowedOrigins.includes(origin) || !origin) {
@@ -59,7 +61,7 @@ app.post("/compress", upload.single("file"), (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );

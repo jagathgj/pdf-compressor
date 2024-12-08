@@ -11,6 +11,7 @@ import IBMHeader from "./Header";
 
 const App = () => {
   const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("edit");
   const [quality, setQuality] = useState("medium");
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,7 @@ const App = () => {
     const uploadedFile = event.target.files[0];
     if (uploadedFile) {
       setFile(uploadedFile);
+      setFileName("complete");
     }
   };
 
@@ -36,6 +38,7 @@ const App = () => {
     try {
       const compressedFile = await CompressPdf(file, quality);
       const fileName = `compressed_${file.name}`;
+      console.log("hello", compressedFile, fileName);
       saveAs(compressedFile, fileName);
       setShowModal(true);
     } catch (error) {
@@ -56,6 +59,7 @@ const App = () => {
           buttonLabel="Add file"
           accept={[".pdf"]}
           onChange={handleFileChange}
+          filenameStatus={fileName}
         />
         <RadioButtonGroup
           legendText="Choose Compression Quality"
@@ -98,7 +102,7 @@ const CompressPdf = async (file, quality) => {
       }
     }
   );
-
+  console.log(response, "response");
   if (!response.ok) throw new Error("Compression failed");
 
   const compressedBlob = await response.blob();
