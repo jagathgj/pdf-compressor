@@ -1,0 +1,33 @@
+@use "@carbon/react";
+@use "@carbon/react/scss/theme" as *;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;400;500;600;700&display=swap");
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  min-height: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  padding: 16px;
+  width: 100%;
+  flex: 1;
+  margin-top: 3rem;
+  overflow: hidden;
+  flex-direction: column;
+}
+
