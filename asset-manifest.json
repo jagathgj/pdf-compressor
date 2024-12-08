@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/pdf-compressor/static/css/main.f3b352f3.css",
-    "main.js": "/pdf-compressor/static/js/main.a8ec6d24.js",
+    "main.js": "/pdf-compressor/static/js/main.f9535618.js",
+    "service-worker.js": "/pdf-compressor/service-worker.js",
     "static/media/IBMPlexSerif-SemiBoldItalic-Cyrillic.woff": "/pdf-compressor/static/media/IBMPlexSerif-SemiBoldItalic-Cyrillic.d96e5a614e96c351c453.woff",
     "static/media/IBMPlexSerif-SemiBoldItalic-Latin1.woff": "/pdf-compressor/static/media/IBMPlexSerif-SemiBoldItalic-Latin1.b691d8c0c5110ea3659e.woff",
     "static/media/IBMPlexSerif-Italic-Cyrillic.woff": "/pdf-compressor/static/media/IBMPlexSerif-Italic-Cyrillic.452cc78a1baf50168631.woff",
@@ -184,10 +185,10 @@
     "static/media/IBMPlexMono-Regular-Latin3.woff2": "/pdf-compressor/static/media/IBMPlexMono-Regular-Latin3.cacfd1d7dbd14067b970.woff2",
     "index.html": "/pdf-compressor/index.html",
     "main.f3b352f3.css.map": "/pdf-compressor/static/css/main.f3b352f3.css.map",
-    "main.a8ec6d24.js.map": "/pdf-compressor/static/js/main.a8ec6d24.js.map"
+    "main.f9535618.js.map": "/pdf-compressor/static/js/main.f9535618.js.map"
   },
   "entrypoints": [
     "static/css/main.f3b352f3.css",
-    "static/js/main.a8ec6d24.js"
+    "static/js/main.f9535618.js"
   ]
 }
