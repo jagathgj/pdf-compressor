@@ -3,8 +3,14 @@ import multer from "multer";
 import { exec } from "child_process";
 import fs from "fs";
 import cors from "cors";
+import path from "path";
 
 const app = express();
+
+const UPLOAD_DIR = path.resolve("uploads");
+if (!fs.existsSync(UPLOAD_DIR)) {
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+}
 
 const corsOptions = {
   origin: (origin, callback) => {

@@ -96,10 +96,7 @@ const CompressPdf = async (file, quality) => {
     "https://pdf-compressor-cobl.onrender.com/compress",
     {
       method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
+      body: formData
     }
   );
   console.log(response, "response");
