@@ -30,7 +30,19 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-const upload = multer({ dest: "uploads/" });
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, UPLOAD_DIR);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    const extension = path.extname(file.originalname);
+    const baseName = path.basename(file.originalname, extension);
+    cb(null, `${baseName}-${uniqueSuffix}${extension}`);
+  }
+});
+
+const upload = multer({ dest: "uploads/", storage });
 
 app.post("/compress", upload.single("file"), (req, res) => {
   const inputFilePath = req.file.path;

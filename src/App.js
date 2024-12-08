@@ -61,26 +61,30 @@ const App = () => {
           onChange={handleFileChange}
           filenameStatus={fileName}
         />
-        <RadioButtonGroup
-          legendText="Choose Compression Quality"
-          name="quality"
-          valueSelected={quality}
-          onChange={handleQualityChange}
-        >
-          <RadioButton labelText="Low" value="low" />
-          <RadioButton labelText="Medium" value="medium" />
-          <RadioButton labelText="High" value="high" />
-        </RadioButtonGroup>
-        <Button onClick={handleCompress} disabled={loading}>
-          {loading ? "Compressing..." : "Compress"}
-        </Button>
+        <div className="form-wrapper">
+          <RadioButtonGroup
+            legendText="Choose Compression Quality"
+            name="quality"
+            valueSelected={quality}
+            onChange={handleQualityChange}
+          >
+            <RadioButton labelText="Low" value="low" />
+            <RadioButton labelText="Medium" value="medium" />
+            <RadioButton labelText="High" value="high" />
+          </RadioButtonGroup>
+        </div>
+        <div className="form-wrapper">
+          <Button onClick={handleCompress} disabled={loading}>
+            {loading ? "Compressing..." : "Compress"}
+          </Button>
+        </div>
         <Modal
           open={showModal}
-          modalHeading="Compression Complete"
+          modalHeading="PDF compression completed"
           primaryButtonText="Close"
           onRequestClose={() => setShowModal(false)}
         >
-          Your compressed PDF is ready for download.
+          Your PDF is compressed and downloading.
         </Modal>
       </div>
     </div>
