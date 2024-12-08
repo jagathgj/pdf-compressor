@@ -4,7 +4,7 @@ import {
   RadioButtonGroup,
   RadioButton,
   Button,
-  Modal,
+  Modal
 } from "@carbon/react";
 import { saveAs } from "file-saver";
 import IBMHeader from "./Header";
@@ -88,10 +88,13 @@ const CompressPdf = async (file, quality) => {
   formData.append("file", file);
   formData.append("quality", quality);
 
-  const response = await fetch("http://localhost:5000/compress", {
-    method: "POST",
-    body: formData,
-  });
+  const response = await fetch(
+    "https://pdf-compressor-cobl.onrender.com/compress",
+    {
+      method: "POST",
+      body: formData
+    }
+  );
 
   if (!response.ok) throw new Error("Compression failed");
 

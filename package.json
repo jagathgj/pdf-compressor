@@ -1,7 +1,7 @@
 {
-  "name": "Create-react-templete-v11",
+  "name": "PDF Compressor",
   "version": "0.1.0",
-  "homepage": "/",
+  "homepage": "https://jagathgj.github.io/pdf-compressor",
   "dependencies": {
     "@carbon/icons-react": "^11.34.1",
     "@carbon/react": "^1.48.1",
@@ -44,5 +44,8 @@
     ]
   },
   "author": "Jagath Jayakumar",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
