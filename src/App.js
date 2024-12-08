@@ -11,7 +11,6 @@ import IBMHeader from "./Header";
 
 const App = () => {
   const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("edit");
   const [quality, setQuality] = useState("medium");
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -20,7 +19,6 @@ const App = () => {
     const uploadedFile = event.target.files[0];
     if (uploadedFile) {
       setFile(uploadedFile);
-      setFileName("complete");
     }
   };
 
@@ -53,14 +51,16 @@ const App = () => {
     <div className="container">
       <IBMHeader />
       <div className="wrapper">
-        <FileUploader
-          labelTitle="Upload a PDF"
-          labelDescription="Only PDF files are supported"
-          buttonLabel="Add file"
-          accept={[".pdf"]}
-          onChange={handleFileChange}
-          filenameStatus={fileName}
-        />
+        <div className="form-wrapper">
+          <FileUploader
+            labelTitle="Upload a PDF"
+            labelDescription="Only PDF files are supported"
+            buttonLabel="Add file"
+            accept={[".pdf"]}
+            onChange={handleFileChange}
+            filenameStatus={file ? "edit" : "uploading"}
+          />
+        </div>
         <div className="form-wrapper">
           <RadioButtonGroup
             legendText="Choose Compression Quality"

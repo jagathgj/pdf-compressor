@@ -15,9 +15,10 @@ if (!fs.existsSync(UPLOAD_DIR)) {
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
-      "https://jagathgj.github.io",
+      "https://jagathgj.github.io/pdf-compressor",
       "http://localhost:5000",
       "http://localhost:5001",
+      "http://localhost:10000",
       "http://localhost:3000"
     ];
     if (allowedOrigins.includes(origin) || !origin) {
@@ -77,6 +78,28 @@ app.post("/compress", upload.single("file"), (req, res) => {
       fs.unlinkSync(outputFilePath);
     });
   });
+});
+
+app.delete("/delete", (req, res) => {
+  const { fileName } = req.body;
+
+  if (!fileName) {
+    return res.status(400).send("File name is required.");
+  }
+
+  const filePath = path.join(UPLOAD_DIR, fileName);
+
+  try {
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+      return res.send("File deleted successfully.");
+    } else {
+      return res.status(404).send("File not found.");
+    }
+  } catch (error) {
+    console.error("File deletion error:", error);
+    return res.status(500).send("Failed to delete file.");
+  }
 });
 
 const PORT = process.env.PORT || 10000;
