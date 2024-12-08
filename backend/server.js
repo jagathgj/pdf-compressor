@@ -6,11 +6,21 @@ import cors from "cors";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://jagathgj.github.io/"
-  })
-);
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "https://jagathgj.github.io",
+      "http://localhost:3000"
+    ];
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
+
+app.use(cors(corsOptions));
 
 const upload = multer({ dest: "uploads/" });
 
